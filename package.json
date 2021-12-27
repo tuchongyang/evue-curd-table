@@ -1,15 +1,40 @@
 {
-  "name": "evue-curd-table",
+  "name": "@evue/curd-table",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "scripts": {
+    "dev": "vue-cli-service serve dev/serve.js",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "lib": "vue-cli-service build --target lib --name evue-curd-table --dest lib src/index.ts",
+    "prepublish": "npm run lib"
+  },
+  "keywords": [
+    "curd-table",
+    "vue",
+    "vue3",
+    "table",
+    "element-plus"
+  ],
+  "types": "src/index.d.ts",
+  "main": "lib/evue-curd-table.common.js",
+  "style": "lib/evue-curd-table.css",
+  "homepage": "https://github.com/tuchongyang/evue-curd-table",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tuchongyang/evue-curd-table"
+  },
+  "bugs": {
+    "url": "https://github.com/tuchongyang/evue-curd-table/issues"
   },
   "dependencies": {
+    "@evue/schema-form": "^0.2.4",
     "core-js": "^3.8.3",
-    "vue": "^3.2.13"
+    "element-plus": "^1.2.0-beta.6",
+    "file-saver": "^2.0.5",
+    "vue": "^3.2.13",
+    "xlsx": "^0.17.4"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.4.0",
