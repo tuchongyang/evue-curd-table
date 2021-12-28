@@ -1,6 +1,6 @@
 {
   "name": "@evue/curd-table",
-  "version": "0.1.3",
+  "version": "0.1.5",
   "private": false,
   "scripts": {
     "dev": "vue-cli-service serve dev/serve.js",
@@ -18,7 +18,7 @@
     "element-plus"
   ],
   "types": "src/index.d.ts",
-  "main": "src/index.ts",
+  "main": "src/index.js",
   "style": "lib/evue-curd-table.css",
   "homepage": "https://github.com/tuchongyang/evue-curd-table",
   "repository": {
