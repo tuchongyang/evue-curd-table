@@ -8,8 +8,10 @@ import zhCn from "element-plus/es/locale/lang/zh-cn"
 
 const app = createApp(Dev)
 app.use(ElementPlus, { locale: zhCn, size: "mini" })
-import { CurdTable } from "../src/components"
-app.component("CurdTable", CurdTable)
-import { FormDialog } from "@evue/schema-form"
+// import { CurdTable } from "../src/components"
+import { SchemaForm, FormDialog } from "@evue/schema-form"
+app.component("SchemaForm", SchemaForm)
 app.use(FormDialog.install)
+import { CurdTable } from "@evue/curd-table"
+app.component("CurdTable", CurdTable)
 app.mount("#app")

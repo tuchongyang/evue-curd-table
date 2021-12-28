@@ -34,13 +34,13 @@
         <template #default="scope">
           <template v-if="!$slots.menuBtn">
             <el-button type="text" @click.stop="create(scope.row)">
-              <el-icon><edit /></el-icon> 编辑
+              <el-icon><Edit /></el-icon> 编辑
             </el-button>
             <el-button type="text" @click.stop="detail(scope.row)">
-              <el-icon><document /></el-icon> 详情
+              <el-icon><Document /></el-icon> 详情
             </el-button>
             <el-button type="text" style="color: #ff0000" @click.stop="startremove(scope)">
-              <el-icon><delete /></el-icon> 删除
+              <el-icon><Delete /></el-icon> 删除
             </el-button>
           </template>
           <el-dropdown trigger="click" v-else>
@@ -51,17 +51,17 @@
               <el-dropdown-menu>
                 <el-dropdown-item>
                   <el-button type="text" @click.stop="create(scope.row)">
-                    <el-icon><edit /></el-icon> 编辑
+                    <el-icon><Edit /></el-icon> 编辑
                   </el-button>
                 </el-dropdown-item>
                 <el-dropdown-item>
                   <el-button type="text" @click.stop="detail(scope.row)">
-                    <el-icon><document /></el-icon> 详情
+                    <el-icon><Document /></el-icon> 详情
                   </el-button>
                 </el-dropdown-item>
                 <el-dropdown-item>
                   <el-button type="text" style="color: #ff0000" @click.stop="startremove(scope)">
-                    <el-icon><delete /></el-icon> 删除
+                    <el-icon><Delete /></el-icon> 删除
                   </el-button>
                 </el-dropdown-item>
                 <slot name="menuBtn" v-bind="scope"></slot>
@@ -84,9 +84,9 @@ import STableFilter from "./STableFilter.vue"
 import STableMenu from "./STableMenu.vue"
 import STableDetail from "./STableDetail.vue"
 // import { useFormModal } from "@/components/FormModal"
-import { FormDialog } from "@evue/schema-form"
+// import { FormDialog } from "@evue/schema-form"
 import { deepClone } from "./utils/common"
-import { Edit, Delete, Plus, ArrowDown } from "@element-plus/icons-vue"
+import { Edit, Delete, Plus, ArrowDown, Document } from "@element-plus/icons-vue"
 const props = defineProps({
   // 表格的数据
   data: {
@@ -284,15 +284,16 @@ const create = (row) => {
       setItem(a)
     }
   })
-
-  FormDialog.show({
-    title: row ? "编辑" : "添加",
-    formSchema: formSchema,
-    fields: row,
-    handleOk: async (modelRef) => {
-      const fun = row ? "fetchCreate" : "fetchEdit"
-      return await (props[fun] && props[fun](modelRef, row))
-    },
+  import("@evue/schema-form").then((res) => {
+    res.FormDialog.show({
+      title: row ? "编辑" : "添加",
+      formSchema: formSchema,
+      fields: row,
+      handleOk: async (modelRef) => {
+        const fun = row ? "fetchCreate" : "fetchEdit"
+        return await (props[fun] && props[fun](modelRef, row))
+      },
+    })
   })
 }
 const instance = getCurrentInstance()

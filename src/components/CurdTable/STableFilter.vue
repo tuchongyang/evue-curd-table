@@ -10,7 +10,7 @@
 </template>
 <script setup>
 import { defineProps, defineEmits, ref } from "vue"
-import { SchemaForm } from "@evue/schema-form"
+// import { SchemaForm } from "@evue/schema-form"
 import { Search } from "@element-plus/icons-vue"
 const props = defineProps({
   schema: {
@@ -25,7 +25,6 @@ const search = () => {
   emits("search", formSchemaRef.value.modelRef)
 }
 const reset = () => {
-  console.log("formSchemaRef", formSchemaRef)
   formSchemaRef.value.schemaFormRef.resetFields()
 }
 </script>

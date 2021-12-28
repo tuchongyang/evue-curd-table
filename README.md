@@ -1,11 +1,24 @@
 # @evue/curd-table
 
-curd-table 是面向配置的组件，无额外业务代码，仅通过 curd-table 的 API 配置实现一个完整的增删改查逻辑。
+curd-table 是面向配置的表格组件，无额外业务代码，仅通过 curd-table 的 API 配置实现一个完整的增删改查逻辑。
 
 ## 安装
 
 ```shell
 npm install @evue/curd-table -S
+```
+## 全局引用
+
+``` javascript
+
+import { CurdTable } from "@evue/curd-table"
+import { FormDialog } from "@evue/schema-form"
+import "@evue/curd-table/lib/evue-curd-table.css"
+
+app.component('CurdTable',CurdTable),
+
+app.use(FormDialog.install)
+
 ```
 
 ## 使用
