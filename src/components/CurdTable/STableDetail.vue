@@ -18,7 +18,7 @@
 </template>
 <script setup>
 import { ref, defineExpose } from "vue"
-import { ConstantStatus } from "@/components/ConstantStatus"
+import { ConstantStatus } from "../ConstantStatus"
 const visible = ref(false)
 const list = ref([])
 const open = (option) => {

@@ -7,7 +7,7 @@
 </template>
 <script setup>
 import { defineProps } from "vue"
-import { ConstantStatus } from "@/components/ConstantStatus"
+import { ConstantStatus } from "../ConstantStatus"
 const props = defineProps({
   scope: {
     type: Object,
